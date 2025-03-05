@@ -1,0 +1,90 @@
+-- lspconfig.rustowl.setup {
+--     trigger = {
+--         hover = false,
+--     },
+-- }
+-- vim.keymap(
+-- test
+--     "n",
+--     "<c-o>",
+--     require("rustowl").rustowl_cursor,
+--     { noremap = true, silent = true }
+-- )
+-- This function is used to check if the cursor is at the beginning of a word.
+-- It is used to prevent completion from being triggered when inserting a tab.
+-- LSP
+
+
+-- local bufnr = vim.api.nvim_get_current_buf()
+-- vim.keymap.set(
+--   "n", 
+--   "<leader>ca", 
+--   function()
+--     vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
+--     -- or vim.lsp.buf.codeAction() if you don't want grouping.
+--   end,
+--   { silent = true, buffer = bufnr }
+-- )
+-- vim.keymap.set(
+--   "n", 
+--   "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+--   function()
+--     vim.cmd.RustLsp({'hover', 'actions'})
+--   end,
+--   { silent = true, buffer = bufnr }
+-- )
+
+-- vim.g.rustaceanvim = {
+--   -- Plugin configuration
+--   tools = {
+--   },
+--   -- LSP configuration
+--   server = {
+--     on_attach = function(client, bufnr)
+--       -- you can also put keymaps in here
+--     end,
+--     default_settings = {
+--       -- rust-analyzer language server configuration
+--       ['rust-analyzer'] = {
+--         cargo = {
+--           loadOutDirsFromCheck = true,
+--           features = "all"
+--         },
+--         files = {
+--           excludeDirs = {
+--             ".direnv",
+--             ".git",
+--             ".github",
+--             ".gitlab",
+--             "bin",
+--             "web/node_modules",
+--             "node_modules",
+--             "target",
+--             "venv",
+--             ".venv",
+--           },
+--         }
+--       },
+--     },
+--   },
+-- }
+-- --winbar
+-- -- Function to count the number of buffers
+-- local function count_buffers()
+--     local count = 0
+--     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+--         -- Only count valid, listed, and non-terminal/filetype buffers
+--         if vim.api.nvim_buf_is_valid(buf)
+--             and vim.bo[buf].buflisted -- Listed in `:ls`
+--             and vim.fn.bufname(buf) ~= "" -- Has a name
+--             and not vim.bo[buf].buftype:match("nofile|quickfix|help|terminal") then -- Exclude special buffers
+--             count = count + 1
+--         end
+--     end
+--     return count
+-- end
+-- _G.count_buffers = count_buffers
+-- -- Set the statusline
+-- vim.o.winbar= "(%{v:lua.count_buffers()})%=%m%f"
+
+require 'orbsa'
