@@ -50,10 +50,10 @@ require'lualine'.setup {
 		}
 	},
 	options = {
-		-- theme = 'gruvbox'
-		-- theme = 'palenight'
-		-- theme = 'tokyonight',
-    theme =  'horizon',
+    component_separators = { left = '⧹', right = '⧸'},
+    section_separators = { left = '', right = ''},
+    -- theme =  'horizon',
+    theme = 'seoul256',
 		globalstatus = true,
     extensions = {
       'oil',
