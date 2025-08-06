@@ -88,8 +88,7 @@ vim.g.rustaceanvim = {
 -- }
 
 local lspdefaults = lspconfig.util.default_config
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require('copilot_cmp').setup()
+local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 require'lspconfig'.html.setup{}
 require'lspconfig'.cssls.setup{}
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
