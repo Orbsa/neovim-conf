@@ -27,23 +27,23 @@ require'lualine'.setup {
       'lsp_progress'
     }
 	},
-  tabline = {
-    lualine_a = {{
-        'buffers',
-        -- show_filename_only = false,
-        mode = 4,
-        max_length = vim.o.columns,
-        filetype_names = {
-          TelescopePrompt = 'Telescope',
-          dashboard = 'Dashboard',
-          packer = 'Packer',
-          fzf = 'FZF',
-          alpha = 'Alpha',
-          fugitive = 'Fugitive',
-          ['harpoon-menu'] = 'Harpoon',
-        },
-    }},
-  },
+  -- tabline = {
+  --   lualine_a = {{
+  --       'buffers',
+  --       -- show_filename_only = false,
+  --       mode = 4,
+  --       max_length = vim.o.columns,
+  --       filetype_names = {
+  --         TelescopePrompt = 'Telescope',
+  --         dashboard = 'Dashboard',
+  --         packer = 'Packer',
+  --         fzf = 'FZF',
+  --         alpha = 'Alpha',
+  --         fugitive = 'Fugitive',
+  --         ['harpoon-menu'] = 'Harpoon',
+  --       },
+  --   }},
+  -- },
 	inactive_sections = {
 		lualine_a = {
 			{ window }

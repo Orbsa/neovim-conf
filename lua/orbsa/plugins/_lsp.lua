@@ -1,22 +1,31 @@
 local lspconfig = require'lspconfig'
-lspconfig.ts_ls.setup{
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    typescript = {
-      inlayHints = {
-        -- You can set this to 'all' or 'literals' to enable more hints
-        includeInlayParameterNameHints = "literal", -- 'none' | 'literals' | 'all'
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-    },
-  },
-}
+-- lspconfig.ts_ls.setup{  --- This is superceeded by typescript-tools.nvim
+--   -- Server-specific settings. See `:help lspconfig-setup`
+--   settings = {
+--     typescript = {
+--       inlayHints = {
+--         -- You can set this to 'all' or 'literals' to enable more hints
+--         includeInlayParameterNameHints = "literal", -- 'none' | 'literals' | 'all'
+--         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+--         includeInlayFunctionParameterTypeHints = true,
+--         includeInlayVariableTypeHints = true,
+--         includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+--         includeInlayPropertyDeclarationTypeHints = true,
+--         includeInlayFunctionLikeReturnTypeHints = true,
+--         includeInlayEnumMemberValueHints = true,
+--       },
+--     },
+--   },
+-- }
+
+-- Rust 
+-- run Fly config on save
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.rs",
+  callback = function()
+    vim.cmd.RustLsp { "flyCheck", "run" }
+  end,
+})
 
 vim.g.rustaceanvim = {
   -- Plugin configuration
@@ -30,6 +39,7 @@ vim.g.rustaceanvim = {
     default_settings = {
       -- rust-analyzer language server configuration
       ['rust-analyzer'] = {
+        checkOnSave = false, 
         cargo = {
           loadOutDirsFromCheck = true,
           features = "all"
@@ -92,7 +102,7 @@ require'rzls'.setup {
   capabilities = capabilities
 } 
 -- Roslyn
-require'roslyn'.setup {
+vim.lsp.config("roslyn", {
   config = {
     cmd = {
       -- "Microsoft.codeAnalysis.LanguageServer",
@@ -142,4 +152,4 @@ require'roslyn'.setup {
     capabilities = capabilities,
     handlers = require 'rzls.roslyn_handlers',
   },
-}
+})
