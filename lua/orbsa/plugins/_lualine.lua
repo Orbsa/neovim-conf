@@ -16,6 +16,9 @@ local winbar = {
 	}
 }
 
+local rosepine= require('lualine.themes.rose-pine')
+rosepine.normal.c.bg = 'None'
+
 require'lualine'.setup {
 	sections = {
 		lualine_a = {
@@ -52,8 +55,7 @@ require'lualine'.setup {
 	options = {
     component_separators = { left = '⧹', right = '⧸'},
     section_separators = { left = '', right = ''},
-    -- theme =  'horizon',
-    theme = 'seoul256',
+    theme = rosepine,
 		globalstatus = true,
     extensions = {
       'oil',

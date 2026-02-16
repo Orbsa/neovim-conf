@@ -1,6 +1,7 @@
 require'orbsa.plugins._treesitter'
 require'orbsa.plugins._ai'
 require'orbsa.plugins._navigator'
+require'orbsa.plugins._display'
 require'orbsa.plugins._lualine'
 require'orbsa.plugins._flash'
 require'orbsa.plugins._telescope'

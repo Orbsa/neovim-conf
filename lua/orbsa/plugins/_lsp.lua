@@ -79,7 +79,12 @@ vim.lsp.config('lua_ls', {
   },
 })
 
-vim.lsp.enable({ 'html', 'cssls', 'lua_ls' })
+-- Nix
+vim.lsp.config('nil_ls', {
+  capabilities = capabilities,
+})
+
+vim.lsp.enable({ 'html', 'cssls', 'lua_ls', 'nil_ls' })
 
 -- RZLS
 require'rzls'.setup {
