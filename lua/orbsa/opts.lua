@@ -21,7 +21,7 @@ vim.opt.scrolloff = 5
 vim.opt.autoread = true
 
 -- theme
-vim.cmd("colorscheme miasma")
+vim.cmd("colorscheme rose-pine")
 -- Remove background
 -- vim.cmd([[
 --   highlight TelescopeBorder guibg=NONE ctermbg=NONE

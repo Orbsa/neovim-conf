@@ -53,7 +53,7 @@ require'lualine'.setup {
     component_separators = { left = '⧹', right = '⧸'},
     section_separators = { left = '', right = ''},
     -- theme =  'horizon',
-    theme = 'seoul256',
+    theme = 'rose-pine',
 		globalstatus = true,
     extensions = {
       'oil',
