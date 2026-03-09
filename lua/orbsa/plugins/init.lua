@@ -1,4 +1,4 @@
-require'orbsa.plugins._treesitter'
+--require'orbsa.plugins._treesitter' -- Deprecated in neovim 0.11
 require'orbsa.plugins._ai'
 require'orbsa.plugins._navigator'
 require'orbsa.plugins._display'
